@@ -18,7 +18,7 @@ jobs:
           host: ${{ secrets.EC2_HOST }}
           username: ubuntu
           key: ${{ secrets.EC2_SSH_KEY }}
-          source: "scripts/setup-ec2-infra.sh"
+          source: "setup-ec2-infra.sh"
           target: "/home/ubuntu/"
 
       - name: Run setup script on EC2
