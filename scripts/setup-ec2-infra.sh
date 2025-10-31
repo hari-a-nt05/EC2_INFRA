@@ -22,7 +22,7 @@ server {
     server_name 98.80.76.115;
 
     # Frontend (React/Vite)
-    root /var/www/frontend/dist;
+    root /var/www/frontend;
     index index.html;
 
     location / {
