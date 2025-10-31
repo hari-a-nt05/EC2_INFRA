@@ -19,7 +19,7 @@ echo "=== Configuring Nginx ==="
 sudo bash -c 'cat > /etc/nginx/sites-available/myapp << "EOL"
 server {
     listen 80;
-    server_name 98.80.125.205;
+    server_name 98.80.76.115;
 
     # Frontend (React/Vite)
     root /var/www/frontend/dist;
@@ -44,7 +44,7 @@ server {
 EOL'
 
 sudo ln -sf /etc/nginx/sites-available/myapp /etc/nginx/sites-enabled/
-sudo nginx -t && sudo systemctl restart nginx
+
 
 echo "=== Setting up backend systemd service ==="
 sudo mkdir -p /var/www/backend
@@ -66,8 +66,3 @@ RestartSec=5
 WantedBy=multi-user.target
 EOL'
 
-sudo systemctl daemon-reload
-sudo systemctl enable backend.service
-sudo systemctl restart backend.service
-
-echo "Infrastructure setup completed successfully."
