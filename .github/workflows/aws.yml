@@ -60,9 +60,7 @@ jobs:
             }
             EOL'
  
-            sudo ln -sf /etc/nginx/sites-available/myapp /etc/nginx/sites-enabled/
-            sudo nginx -t
-            sudo systemctl restart nginx
+          
  
             echo "=== Setting up backend systemd service ==="
             sudo mkdir -p /var/www/backend
@@ -86,7 +84,6 @@ jobs:
             WantedBy=multi-user.target
             EOL'
  
-            sudo systemctl daemon-reload
-            sudo systemctl enable backend.service
+           
  
             echo "✅ Infrastructure setup completed successfully."
