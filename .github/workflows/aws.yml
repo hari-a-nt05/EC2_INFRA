@@ -18,7 +18,7 @@ jobs:
           host: ${{ secrets.EC2_HOST }}
           username: ubuntu
           key: ${{ secrets.EC2_SSH_KEY }}
-          source: "setup-ec2-infra.sh"
+          source: "scripts/setup-ec2-infra.sh"
           target: "/home/ubuntu/"
 
       - name: Run setup script on EC2
@@ -32,11 +32,11 @@ jobs:
             set -e
             echo "Starting EC2 infrastructure setup..."
 
-            if [ -f /home/ubuntu/setup-ec2-infra.sh ]; then
-              chmod +x /home/ubuntu/setup-ec2-infra.sh
-              sudo bash /home/ubuntu/setup-ec2-infra.sh
+            if [ -f /home/ubuntu/scripts/setup-ec2-infra.sh ]; then
+              chmod +x /home/ubuntu/scripts/setup-ec2-infra.sh
+              sudo bash /home/ubuntu/scripts/setup-ec2-infra.sh
               echo "EC2 setup completed successfully."
             else
-              echo "Error: setup script not found at /home/ubuntu/setup-ec2-infra.sh"
+              echo "Error: setup script not found at /home/ubuntu/scripts/setup-ec2-infra.sh"
               exit 1
             fi
